@@ -20,7 +20,7 @@ int main()
     cin>>test;
     while(test--){
 
-    char ele,elem,st[2];
+    char ele,elem;
     int prep,pre,popped,j,chk,i;
     i=j=chk=0;
 
@@ -31,16 +31,22 @@ int main()
         exit(0);
     for(i=0; infix[i]!='\0'; i++)   
     {
-        if(infix[i]!='(' && infix[i]!=')' && infix[i]!='^' && infix[i]!='*' && infix[i]!='/' && infix[i]!='+' && infix[i]!='-')
+        if
+        (
+            infix[i] != '(' && infix[i] != ')' && 
+            infix[i] != '^' && infix[i] != '*' && 
+            infix[i] != '/' && infix[i] != '+' && 
+            infix[i] != '-'
+        )
             postfix[j++]=infix[i];
-        else if(infix[i]=='(')
+        else if(infix[i] == '(' )
         {
             elem=infix[i];
             Push(elem);
         }
-        else if(infix[i]!=')')
+        else if(infix[i] != ')' )
         {
-            while((popped=Pop())!= '(')
+            while((popped=Pop()) != '(')
                 postfix[j++]=popped;
         }
         else
